@@ -42,8 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Box.cs" />
-    <Compile Include="FreeCamera.cs" />
-    <Compile Include="ICamera.cs" />
+    <Compile Include="Cameras\FreeCamera.cs" />
+    <Compile Include="Cameras\ICamera.cs" />
     <Compile Include="Components\AxiesComponent.cs" />
     <Compile Include="DagonGame.cs" />
     <Compile Include="Player.cs" />

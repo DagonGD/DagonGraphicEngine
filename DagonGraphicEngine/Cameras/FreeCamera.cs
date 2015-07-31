@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace DagonGraphicEngine
+namespace DagonGraphicEngine.Cameras
 {
     public class FreeCamera : ICamera
     {
