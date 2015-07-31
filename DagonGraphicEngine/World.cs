@@ -5,8 +5,6 @@ namespace DagonGraphicEngine
 {
     public class World
     {
-        public Camera Camera { get; set; }
-
         public List<Box> Boxes { get; set; }
         public List<Unit> Units { get; set; }
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using DagonGraphicEngine.Components;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -7,14 +8,22 @@ namespace DagonGraphicEngine.Demo
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class DemoGame : Game
+    public class DemoGame : DagonGame
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        FreeCamera freeCamera;
+        const float MoveSpeed = 0.005f;
+        const float RotationSpeed = 0.005f;
 
         public DemoGame()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredBackBufferWidth = 800;
+            graphics.PreferredBackBufferHeight = 400;
+            
+            freeCamera = new FreeCamera();
+            Camera = freeCamera;
             Content.RootDirectory = "Content";
         }
 
@@ -28,6 +37,7 @@ namespace DagonGraphicEngine.Demo
         {
             // TODO: Add your initialization logic here
             Components.Add(new WorldComponent(this));
+            Components.Add(new AxiesComponent(this));
 
             base.Initialize();
         }
@@ -65,6 +75,49 @@ namespace DagonGraphicEngine.Demo
             if (keyboardState.IsKeyDown(Keys.Escape))
             {
                 this.Exit();
+            }
+
+            var distance = gameTime.ElapsedGameTime.Milliseconds * MoveSpeed;
+            var rotationAngle = gameTime.ElapsedGameTime.Milliseconds * RotationSpeed;
+
+            if (keyboardState.IsKeyDown(Keys.W))
+            {
+                freeCamera.MoveForward(distance);
+            }
+
+            if (keyboardState.IsKeyDown(Keys.S))
+            {
+                freeCamera.MoveForward(-distance);
+            }
+
+            if (keyboardState.IsKeyDown(Keys.A))
+            {
+                freeCamera.MoveRight(-distance);
+            }
+
+            if (keyboardState.IsKeyDown(Keys.D))
+            {
+                freeCamera.MoveRight(distance);
+            }
+
+            if (keyboardState.IsKeyDown(Keys.Space))
+            {
+                freeCamera.MoveUp(distance);
+            }
+
+            if (keyboardState.IsKeyDown(Keys.C))
+            {
+                freeCamera.MoveUp(-distance);
+            }
+
+            if (keyboardState.IsKeyDown(Keys.Right))
+            {
+                freeCamera.RotateRight(rotationAngle);
+            }
+
+            if (keyboardState.IsKeyDown(Keys.Left))
+            {
+                freeCamera.RotateRight(-rotationAngle);
             }
 
 

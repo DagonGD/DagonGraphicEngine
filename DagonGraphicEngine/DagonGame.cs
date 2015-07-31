@@ -2,8 +2,8 @@
 
 namespace DagonGraphicEngine
 {
-    public class Camera
+    public class DagonGame: Game
     {
-        public Matrix View { get; set; }
+        public ICamera Camera { get; set; }
     }
 }
