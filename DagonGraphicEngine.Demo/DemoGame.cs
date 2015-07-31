@@ -19,11 +19,9 @@ namespace DagonGraphicEngine.Demo
         public DemoGame()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 800;
-            graphics.PreferredBackBufferHeight = 400;
+            graphics.PreferredBackBufferWidth = 1280;
+            graphics.PreferredBackBufferHeight = 800;
             
-            freeCamera = new FreeCamera();
-            Camera = freeCamera;
             Content.RootDirectory = "Content";
         }
 
@@ -36,6 +34,9 @@ namespace DagonGraphicEngine.Demo
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            freeCamera = new FreeCamera(this);
+            Camera = freeCamera;
+
             Components.Add(new WorldComponent(this));
             Components.Add(new AxiesComponent(this));
 
