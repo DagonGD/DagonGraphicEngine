@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
 using System.Collections.Generic;
 namespace DagonGraphicEngine.Demo
 {
@@ -7,9 +6,11 @@ namespace DagonGraphicEngine.Demo
     {
         private World _world;
 
+        private readonly DagonGame _game;
+
         public WorldComponent(DemoGame game):base(game)
         {
-
+            _game = game;
         }
 
         public override void Initialize()
@@ -18,7 +19,11 @@ namespace DagonGraphicEngine.Demo
             {
                 Boxes = new List<Box>
                 {
-                    new Box()
+                    new Box(_game)
+                    {
+                        Dimentions = new Vector3(5f,1f,5f),
+                        World = Matrix.Identity
+                    }
                 },
 
                 Units = new List<Unit>

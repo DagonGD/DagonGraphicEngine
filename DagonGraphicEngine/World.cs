@@ -10,7 +10,10 @@ namespace DagonGraphicEngine
 
         public void Draw(GameTime gameTime)
         {
-
+            foreach(var box in Boxes)
+            {
+                box.Draw(gameTime);
+            }
         }
 
         public void Update(GameTime gameTime)
