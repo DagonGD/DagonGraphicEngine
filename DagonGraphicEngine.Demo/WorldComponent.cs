@@ -17,19 +17,14 @@ namespace DagonGraphicEngine.Demo
         {
             _world = new World
             {
-                Boxes = new List<Box>
-                {
-                    new Box(_game)
-                    {
-                        Dimentions = new Vector3(5f,1f,5f),
-                        World = Matrix.Identity
-                    }
-                },
+                Boxes = new List<Box>(),
 
                 Units = new List<Unit>
                 {
                     new Player()
-                }
+                }, 
+
+                Terrain = new Terrain(_game, 10, 10)
             };
 
             base.Initialize();
