@@ -8,6 +8,7 @@ namespace DagonGraphicEngine.Units
         public Vector3 NewPosition { get; set; }
         public float Angle { get; set; }
         public Vector3 Acceleration { get; set; }
+        public float Speed { get; set; }
 
         protected DagonGame _game;
 
@@ -31,5 +32,10 @@ namespace DagonGraphicEngine.Units
         }
 
         public abstract void Draw(GameTime gameTime);
+
+        public void RotateRight(float dist)
+        {
+            Angle += dist;
+        }
     }
 }

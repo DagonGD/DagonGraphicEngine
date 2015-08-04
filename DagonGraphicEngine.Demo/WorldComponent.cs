@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using DagonGraphicEngine.Units;
+using Microsoft.Xna.Framework.Input;
 
 namespace DagonGraphicEngine.Demo
 {
@@ -53,6 +54,21 @@ namespace DagonGraphicEngine.Demo
 
         public override void Update(GameTime gameTime)
         {
+            var keyboardState = Keyboard.GetState();
+            var player = _game.World.Units.Find(u => u is Player);
+            var distance = gameTime.ElapsedGameTime.Milliseconds * player.Speed;
+            var rotationAngle = gameTime.ElapsedGameTime.Milliseconds * _game.Settings.RotationSpeed;
+
+            if (keyboardState.IsKeyDown(Keys.Right))
+            {
+                player.RotateRight(rotationAngle);
+            }
+
+            if (keyboardState.IsKeyDown(Keys.Left))
+            {
+                player.RotateRight(-rotationAngle);
+            }
+
             _game.World.Update(gameTime);
 
             base.Update(gameTime);

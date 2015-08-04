@@ -14,10 +14,7 @@ namespace DagonGraphicEngine.Demo
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        FirstPersonCamera firstPersonCamera;
-        const float MoveSpeed = 0.005f;
-        const float RotationSpeed = 0.005f;
-
+        
         public DemoGame()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -39,10 +36,9 @@ namespace DagonGraphicEngine.Demo
             {
                 FieldOfView = MathHelper.ToRadians(60.0f),
                 RangeOfVisibility = 30f,
-                EnableDefaultLighting = true
-            };
-
-            
+                EnableDefaultLighting = true,
+                RotationSpeed = 0.005f
+            };            
 
             graphics.PreferMultiSampling = true;
             RasterizerState rasterizerState1 = new RasterizerState();
@@ -54,8 +50,7 @@ namespace DagonGraphicEngine.Demo
             Components.Add(new AxiesComponent(this));
 
             var player = World.Units.Find(u => u is Player);
-            firstPersonCamera = new FirstPersonCamera(this, player);
-            Camera = firstPersonCamera;
+            Camera = new FirstPersonCamera(this, player);
             Components.Add(new DebugInfoComponent(this, player));
 
             base.Initialize();
@@ -89,56 +84,11 @@ namespace DagonGraphicEngine.Demo
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            // TODO: Add your update logic here
             var keyboardState = Keyboard.GetState();
             if (keyboardState.IsKeyDown(Keys.Escape))
             {
                 this.Exit();
             }
-
-            var distance = gameTime.ElapsedGameTime.Milliseconds * MoveSpeed;
-            var rotationAngle = gameTime.ElapsedGameTime.Milliseconds * RotationSpeed;
-
-            /*if (keyboardState.IsKeyDown(Keys.W))
-            {
-                firstPersonCamera.MoveForward(distance);
-            }
-
-            if (keyboardState.IsKeyDown(Keys.S))
-            {
-                firstPersonCamera.MoveForward(-distance);
-            }
-
-            if (keyboardState.IsKeyDown(Keys.A))
-            {
-                firstPersonCamera.MoveRight(-distance);
-            }
-
-            if (keyboardState.IsKeyDown(Keys.D))
-            {
-                firstPersonCamera.MoveRight(distance);
-            }
-
-            if (keyboardState.IsKeyDown(Keys.Space))
-            {
-                firstPersonCamera.MoveUp(distance);
-            }
-
-            if (keyboardState.IsKeyDown(Keys.C))
-            {
-                firstPersonCamera.MoveUp(-distance);
-            }
-
-            if (keyboardState.IsKeyDown(Keys.Right))
-            {
-                firstPersonCamera.RotateRight(rotationAngle);
-            }
-
-            if (keyboardState.IsKeyDown(Keys.Left))
-            {
-                firstPersonCamera.RotateRight(-rotationAngle);
-            }*/
-
 
             base.Update(gameTime);
         }
@@ -150,8 +100,6 @@ namespace DagonGraphicEngine.Demo
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(World.SkyColor);
-
-            // TODO: Add your drawing code here
 
             base.Draw(gameTime);
         }
