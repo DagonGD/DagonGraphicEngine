@@ -46,10 +46,11 @@
     <Compile Include="Cameras\ICamera.cs" />
     <Compile Include="Components\AxiesComponent.cs" />
     <Compile Include="DagonGame.cs" />
-    <Compile Include="Player.cs" />
+    <Compile Include="Units\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Terrain.cs" />
-    <Compile Include="Unit.cs" />
+    <Compile Include="Units\SpriteUnit.cs" />
+    <Compile Include="Units\Unit.cs" />
     <Compile Include="World.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

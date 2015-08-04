@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace DagonGraphicEngine
+namespace DagonGraphicEngine.Units
 {
     public abstract class Unit
     {
@@ -8,7 +8,7 @@ namespace DagonGraphicEngine
         public Vector3 NewPosition { get; set; }
         public Vector3 Velocity { get; set; }
         public Vector3 Acceleration { get; set; }
-        public Matrix World { get; set; }
+
         protected DagonGame _game;
 
         public Unit(DagonGame game)
@@ -23,14 +23,14 @@ namespace DagonGraphicEngine
             Position = NewPosition;
         }
 
-        public abstract void Draw(GameTime gameTime);
-
-        public void Update(GameTime gameTime)
+        public virtual Update(GameTime gameTime)
         {
             //Update gravity
             var time = gameTime.ElapsedGameTime.Milliseconds / 1000f;
             Acceleration += _game.World.Gravity * time;
             NewPosition = Position + Acceleration * time;
         }
+
+        public abstract void Draw(GameTime gameTime);
     }
 }

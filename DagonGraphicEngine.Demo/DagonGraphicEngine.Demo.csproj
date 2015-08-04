@@ -45,6 +45,7 @@
     <Compile Include="DemoGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Warrior.cs" />
     <Compile Include="WorldComponent.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -56,7 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\land.jpg" />
-    <Content Include="Content\player.png" />
+    <Content Include="Content\warrior.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>

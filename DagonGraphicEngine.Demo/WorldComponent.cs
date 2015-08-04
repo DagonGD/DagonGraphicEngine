@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
+using DagonGraphicEngine.Units;
+
 namespace DagonGraphicEngine.Demo
 {
     public class WorldComponent:DrawableGameComponent
@@ -20,7 +22,7 @@ namespace DagonGraphicEngine.Demo
 
                 Units = new List<Unit>
                 {
-                    new Player(_game, _game.Content.Load<Texture2D>("player"))
+                    new Warrior(_game)
                     {
                         Position = new Vector3(0f,0f,0f)
                     }
