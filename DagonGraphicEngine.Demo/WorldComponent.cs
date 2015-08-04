@@ -25,7 +25,7 @@ namespace DagonGraphicEngine.Demo
                     new Player()
                 }, 
 
-                Terrain = new Terrain(_game, 10, 10)
+                Terrain = new Terrain(_game, 100, 100)
                 {
                     LandTexture = _game.Content.Load<Texture2D>("land")
                 }

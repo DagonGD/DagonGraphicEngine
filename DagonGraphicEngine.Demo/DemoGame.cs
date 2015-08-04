@@ -22,6 +22,7 @@ namespace DagonGraphicEngine.Demo
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = 1280;
             graphics.PreferredBackBufferHeight = 800;
+            graphics.PreferMultiSampling = true;
             
             Content.RootDirectory = "Content";
         }

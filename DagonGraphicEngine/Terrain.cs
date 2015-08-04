@@ -26,6 +26,15 @@ namespace DagonGraphicEngine
         {
             _basicEffect = new BasicEffect(game.GraphicsDevice) { TextureEnabled = true};
             _basicEffect.EnableDefaultLighting();
+            _basicEffect.PreferPerPixelLighting = true;
+
+            _basicEffect.FogEnabled = true;
+            _basicEffect.FogStart = 10f;
+            _basicEffect.FogEnd = 20f;
+            _basicEffect.FogColor = Color.Gray.ToVector3();
+
+            //_basicEffect.
+
             _game = game;
 
             _hightMap = new float[width + 1][];
