@@ -6,30 +6,30 @@ using Microsoft.Xna.Framework.Input;
 
 namespace DagonGraphicEngine.Demo
 {
-    public class WorldComponent:DrawableGameComponent
+    public class WorldComponent : DrawableGameComponent
     {
         private readonly DagonGame _game;
 
-        public WorldComponent(DemoGame game):base(game)
+        public WorldComponent(DemoGame game) : base(game)
         {
             _game = game;
 
             _game.World = new World
             {
                 Boxes = new List<Box>(),
+            };
 
-                Units = new List<Unit>
+            _game.World.Units = new List<Unit>
+            {
+                new Warrior(_game)
                 {
-                    new Warrior(_game)
-                    {
-                        Position = new Vector3(5f,10f,5f)
-                    },
-                    new Player(_game)
-                    {
-                        Position = new Vector3(10f,10f,10f),
-                        Angle = MathHelper.ToRadians(0)
-                    }
+                    Position = new Vector3(5f,10f,5f)
                 },
+                new Player(_game)
+                {
+                    Position = new Vector3(10f,10f,10f),
+                    Angle = MathHelper.ToRadians(0)
+                }
             };
 
             _game.World.Terrain = new Terrain(_game, 100, 100)
@@ -87,12 +87,12 @@ namespace DagonGraphicEngine.Demo
                 player.RotateRight(-rotationAngle);
             }
 
-            if(keyboardState.IsKeyDown(Keys.Space))
+            if (keyboardState.IsKeyDown(Keys.Space))
             {
                 player.Jump();
             }
 
-            if(keyboardState.IsKeyDown(Keys.C))
+            if (keyboardState.IsKeyDown(Keys.C))
             {
                 player.Crawl();
             }

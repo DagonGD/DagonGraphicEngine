@@ -9,7 +9,7 @@ namespace DagonGraphicEngine.Units
         private SpriteBatch _spriteBatch;
         private BasicEffect _basicEffect;
 
-        public SpriteUnit(DagonGame game, Texture2D texture):base(game)
+        public SpriteUnit(DagonGame game, Texture2D texture) : base(game)
         {
             _texture = texture;
             _spriteBatch = new SpriteBatch(_game.GraphicsDevice);
@@ -17,6 +17,11 @@ namespace DagonGraphicEngine.Units
             {
                 TextureEnabled = true,
                 VertexColorEnabled = true,
+
+                FogEnabled = true,
+                FogStart = game.Settings.RangeOfVisibility / 3f,
+                FogEnd = game.Settings.RangeOfVisibility,
+                FogColor = game.World.SkyColor.ToVector3()
             };
         }
 
