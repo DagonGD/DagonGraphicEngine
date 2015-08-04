@@ -34,7 +34,12 @@ namespace DagonGraphicEngine.Demo
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            Settings = new GameSettings
+            {
+                FieldOfView = MathHelper.ToRadians(60.0f),
+                RangeOfVisibility = 30f
+            };
+
             freeCamera = new FreeCamera(this);
             Camera = freeCamera;
 

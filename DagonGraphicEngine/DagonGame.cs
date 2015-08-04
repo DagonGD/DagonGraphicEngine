@@ -8,5 +8,6 @@ namespace DagonGraphicEngine
     {
         public ICamera Camera { get; set; }
         public World World { get; set; }
+        public GameSettings Settings { get; set; }
     }
 }

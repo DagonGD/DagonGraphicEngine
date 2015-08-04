@@ -25,7 +25,12 @@ namespace DagonGraphicEngine.Cameras
 
         public FreeCamera(DagonGame game)
         {
-            _projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45.0f), game.GraphicsDevice.Viewport.AspectRatio, 0.1f, 50.0f);
+            _projection = Matrix.CreatePerspectiveFieldOfView(
+                game.Settings.FieldOfView, 
+                game.GraphicsDevice.Viewport.AspectRatio,
+                0.1f, 
+                game.Settings.RangeOfVisibility);
+
             _view = Matrix.CreateLookAt(new Vector3(8, 3, 8), new Vector3(5, 3, 5), Vector3.Up);
         }
 

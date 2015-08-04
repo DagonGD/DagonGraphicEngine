@@ -23,7 +23,7 @@ namespace DagonGraphicEngine.Units
             Position = NewPosition;
         }
 
-        public virtual Update(GameTime gameTime)
+        public virtual void Update(GameTime gameTime)
         {
             //Update gravity
             var time = gameTime.ElapsedGameTime.Milliseconds / 1000f;
