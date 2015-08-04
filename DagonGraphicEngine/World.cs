@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using DagonGraphicEngine.Units;
+using System;
 
 namespace DagonGraphicEngine
 {
@@ -43,9 +44,10 @@ namespace DagonGraphicEngine
             foreach (var unit in Units)
             {
                 //TODO check collision with terrain
-                if (unit.Position.Y < 0)
+                if (unit.NewPosition.Y < 0)
                 {
                     //TODO damage to unit
+                    unit.Position = new Vector3(unit.Position.X, 0, unit.Position.Z);
                     unit.Acceleration = Vector3.Zero;
                 }
                 else

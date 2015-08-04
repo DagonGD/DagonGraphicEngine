@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using System;
 
 namespace DagonGraphicEngine.Units
 {
@@ -36,6 +37,15 @@ namespace DagonGraphicEngine.Units
         public void RotateRight(float dist)
         {
             Angle += dist;
+        }
+
+        public void Jump()
+        {
+            //TODO check collision with terrain
+            if (Math.Abs(Position.Y)<0.1f)
+            {
+                Acceleration = new Vector3(0, 5f, 0);
+            }
         }
     }
 }

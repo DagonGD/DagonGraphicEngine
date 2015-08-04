@@ -69,6 +69,11 @@ namespace DagonGraphicEngine.Demo
                 player.RotateRight(-rotationAngle);
             }
 
+            if(keyboardState.IsKeyDown(Keys.Space))
+            {
+                player.Jump();
+            }
+
             _game.World.Update(gameTime);
 
             base.Update(gameTime);
