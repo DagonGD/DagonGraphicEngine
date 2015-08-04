@@ -27,7 +27,7 @@ namespace DagonGraphicEngine.Demo
                     new Player(_game)
                     {
                         Position = new Vector3(5f,10f,5f),
-                        Angle = MathHelper.ToRadians(-30)
+                        Angle = MathHelper.ToRadians(0)
                     }
                 },
             };
@@ -40,8 +40,6 @@ namespace DagonGraphicEngine.Demo
 
         public override void Initialize()
         {
-            
-
             base.Initialize();
         }
 
@@ -58,6 +56,26 @@ namespace DagonGraphicEngine.Demo
             var player = _game.World.Units.Find(u => u is Player);
             var distance = gameTime.ElapsedGameTime.Milliseconds * player.Speed;
             var rotationAngle = gameTime.ElapsedGameTime.Milliseconds * _game.Settings.RotationSpeed;
+
+            if (keyboardState.IsKeyDown(Keys.W))
+            {
+                player.MoveForward(distance);
+            }
+
+            if (keyboardState.IsKeyDown(Keys.S))
+            {
+                player.MoveForward(-distance);
+            }
+
+            if (keyboardState.IsKeyDown(Keys.A))
+            {
+                player.MoveRight(-distance);
+            }
+
+            if (keyboardState.IsKeyDown(Keys.D))
+            {
+                player.MoveRight(distance);
+            }
 
             if (keyboardState.IsKeyDown(Keys.Right))
             {

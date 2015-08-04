@@ -1,5 +1,4 @@
-﻿using System;
-using DagonGraphicEngine.Units;
+﻿using DagonGraphicEngine.Units;
 using Microsoft.Xna.Framework;
 
 namespace DagonGraphicEngine.Cameras

@@ -37,6 +37,20 @@ namespace DagonGraphicEngine.Units
 
         public abstract void Draw(GameTime gameTime);
 
+        public void MoveForward(float dist)
+        {
+            Vector3 direction = new Vector3((float)Math.Cos(Angle - Math.PI / 2), 0, (float)Math.Sin(Angle - Math.PI / 2));
+            direction.Normalize();
+            Position += direction * dist;
+        }
+
+        public void MoveRight(float dist)
+        {
+            Vector3 direction = new Vector3((float)Math.Cos(Angle), 0, (float)Math.Sin(Angle));
+            direction.Normalize();
+            Position += direction * dist;
+        }
+
         public void RotateRight(float dist)
         {
             Angle += dist;
