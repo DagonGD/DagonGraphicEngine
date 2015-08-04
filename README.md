@@ -6,3 +6,4 @@ Features:
 * Different type of cameras (free camera, first person camera, cinematic camera)
 * Basic physics
 * Quest engine
+* Mutable gravitaty

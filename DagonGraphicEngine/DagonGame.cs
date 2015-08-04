@@ -7,5 +7,6 @@ namespace DagonGraphicEngine
     public class DagonGame: Game
     {
         public ICamera Camera { get; set; }
+        public World World { get; set; }
     }
 }

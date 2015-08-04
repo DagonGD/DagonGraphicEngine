@@ -5,8 +5,6 @@ namespace DagonGraphicEngine.Demo
 {
     public class WorldComponent:DrawableGameComponent
     {
-        private World _world;
-
         private readonly DagonGame _game;
 
         public WorldComponent(DemoGame game):base(game)
@@ -16,13 +14,16 @@ namespace DagonGraphicEngine.Demo
 
         public override void Initialize()
         {
-            _world = new World
+            _game.World = new World
             {
                 Boxes = new List<Box>(),
 
                 Units = new List<Unit>
                 {
-                    new Player()
+                    new Player(_game, _game.Content.Load<Texture2D>("player"))
+                    {
+                        Position = new Vector3(5f,5f,5f)
+                    }
                 }, 
 
                 Terrain = new Terrain(_game, 100, 100)
@@ -36,14 +37,14 @@ namespace DagonGraphicEngine.Demo
 
         public override void Draw(GameTime gameTime)
         {
-            _world.Draw(gameTime);
+            _game.World.Draw(gameTime);
 
             base.Draw(gameTime);
         }
 
         public override void Update(GameTime gameTime)
         {
-            _world.Update(gameTime);
+            _game.World.Update(gameTime);
 
             base.Update(gameTime);
         }

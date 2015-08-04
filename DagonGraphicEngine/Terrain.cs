@@ -31,7 +31,7 @@ namespace DagonGraphicEngine
             _basicEffect.FogEnabled = true;
             _basicEffect.FogStart = 10f;
             _basicEffect.FogEnd = 20f;
-            _basicEffect.FogColor = Color.Gray.ToVector3();
+            _basicEffect.FogColor = Color.CornflowerBlue.ToVector3();
 
             //_basicEffect.
 

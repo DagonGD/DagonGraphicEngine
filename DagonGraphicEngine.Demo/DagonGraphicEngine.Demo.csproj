@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\land.jpg" />
+    <Content Include="Content\player.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>

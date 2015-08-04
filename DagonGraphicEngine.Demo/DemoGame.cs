@@ -22,8 +22,7 @@ namespace DagonGraphicEngine.Demo
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = 1280;
             graphics.PreferredBackBufferHeight = 800;
-            graphics.PreferMultiSampling = true;
-            
+
             Content.RootDirectory = "Content";
         }
 
@@ -38,6 +37,11 @@ namespace DagonGraphicEngine.Demo
             // TODO: Add your initialization logic here
             freeCamera = new FreeCamera(this);
             Camera = freeCamera;
+
+            graphics.PreferMultiSampling = true;
+            RasterizerState rasterizerState1 = new RasterizerState();
+            rasterizerState1.CullMode = CullMode.None;
+            graphics.GraphicsDevice.RasterizerState = rasterizerState1;
 
             Components.Add(new WorldComponent(this));
             Components.Add(new AxiesComponent(this));
