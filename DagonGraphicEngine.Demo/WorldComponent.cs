@@ -27,11 +27,11 @@ namespace DagonGraphicEngine.Demo
                         Position = new Vector3(0f,0f,0f)
                     }
                 }, 
+            };
 
-                Terrain = new Terrain(_game, 100, 100)
-                {
-                    LandTexture = _game.Content.Load<Texture2D>("land")
-                }
+            _game.World.Terrain = new Terrain(_game, 100, 100)
+            {
+                LandTexture = _game.Content.Load<Texture2D>("land")
             };
 
             base.Initialize();

@@ -31,7 +31,7 @@ namespace DagonGraphicEngine
             _basicEffect.FogEnabled = true;
             _basicEffect.FogStart = game.Settings.RangeOfVisibility / 2f;
             _basicEffect.FogEnd = game.Settings.RangeOfVisibility;
-            _basicEffect.FogColor = Color.CornflowerBlue.ToVector3();
+            _basicEffect.FogColor = game.World.SkyColor.ToVector3();
 
             //_basicEffect.
 

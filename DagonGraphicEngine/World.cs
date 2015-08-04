@@ -10,10 +10,12 @@ namespace DagonGraphicEngine
         public List<Unit> Units { get; set; }
         public Terrain Terrain { get; set; }
         public Vector3 Gravity { get; set; }
+        public Color SkyColor { get; set; }
 
         public World()
         {
             Gravity = new Vector3(0f, -9.8f, 0f);
+            SkyColor = Color.CornflowerBlue;
         }
 
         public void Draw(GameTime gameTime)
