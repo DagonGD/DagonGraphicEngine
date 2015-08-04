@@ -40,11 +40,19 @@ namespace DagonGraphicEngine
                 unit.Update(gameTime);
             }
 
-            //TODO collision detection
-
             foreach (var unit in Units)
             {
-                //unit.ApplyNewPosition();
+                //TODO check collision with terrain
+                if (unit.Position.Y < 0)
+                {
+                    //TODO damage to unit
+                    unit.Velocity = Vector3.Zero;
+                    unit.Acceleration = Vector3.Zero;
+                }
+                else
+                {
+                    unit.ApplyNewPosition();
+                }
             }
         }
     }

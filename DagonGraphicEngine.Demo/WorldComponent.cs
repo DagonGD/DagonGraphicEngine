@@ -24,7 +24,7 @@ namespace DagonGraphicEngine.Demo
                 {
                     new Warrior(_game)
                     {
-                        Position = new Vector3(0f,0f,0f)
+                        Position = new Vector3(0f,10f,0f)
                     }
                 }, 
             };
