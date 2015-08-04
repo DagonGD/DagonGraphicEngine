@@ -74,6 +74,15 @@ namespace DagonGraphicEngine.Demo
                 player.Jump();
             }
 
+            if(keyboardState.IsKeyDown(Keys.C))
+            {
+                player.Crawl();
+            }
+            else
+            {
+                player.Stand();
+            }
+
             _game.World.Update(gameTime);
 
             base.Update(gameTime);

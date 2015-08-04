@@ -10,6 +10,7 @@ namespace DagonGraphicEngine.Units
         public float Angle { get; set; }
         public Vector3 Acceleration { get; set; }
         public float Speed { get; set; }
+        public Vector3 Hight { get; set; }
 
         protected DagonGame _game;
 
@@ -17,6 +18,8 @@ namespace DagonGraphicEngine.Units
         {
             _game = game;
             Acceleration = Vector3.Zero;
+            Speed = 0.005f;
+            Hight = new Vector3(0, 1.8f, 0);
         }
 
         public void ApplyNewPosition()
@@ -46,6 +49,16 @@ namespace DagonGraphicEngine.Units
             {
                 Acceleration = new Vector3(0, 5f, 0);
             }
+        }
+
+        public void Crawl()
+        {
+            Hight = new Vector3(0, 0.5f, 0);
+        }
+
+        public void Stand()
+        {
+            Hight = new Vector3(0, 1.8f, 0);
         }
     }
 }

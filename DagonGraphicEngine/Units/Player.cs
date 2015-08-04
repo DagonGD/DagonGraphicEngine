@@ -7,7 +7,7 @@ namespace DagonGraphicEngine.Units
     {
         public Player(DagonGame game):base(game)
         {
-            Speed = 0.005f;
+            
         }
 
         public override void Draw(GameTime gameTime)

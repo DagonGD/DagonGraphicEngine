@@ -8,8 +8,6 @@ namespace DagonGraphicEngine.Cameras
     {
         private Unit _unit;
 
-        private Vector3 _height = new Vector3(0, 1.8f, 0);
-
         private Matrix _projection;
         public Matrix Projection
         {
@@ -23,7 +21,7 @@ namespace DagonGraphicEngine.Cameras
         {
             get
             {
-                return Matrix.CreateTranslation(-_unit.Position - _height)
+                return Matrix.CreateTranslation(-_unit.Position - _unit.Hight)
                     * Matrix.CreateRotationY(_unit.Angle);
             }
         }
