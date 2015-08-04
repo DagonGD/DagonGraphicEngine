@@ -25,11 +25,15 @@ namespace DagonGraphicEngine
         public Terrain(DagonGame game, int width, int length)
         {
             _basicEffect = new BasicEffect(game.GraphicsDevice) { TextureEnabled = true};
-            _basicEffect.EnableDefaultLighting();
-            _basicEffect.PreferPerPixelLighting = true;
+
+            if (game.Settings.EnableDefaultLighting)
+            {
+                _basicEffect.EnableDefaultLighting();
+                _basicEffect.PreferPerPixelLighting = true;
+            }
 
             _basicEffect.FogEnabled = true;
-            _basicEffect.FogStart = game.Settings.RangeOfVisibility / 2f;
+            _basicEffect.FogStart = game.Settings.RangeOfVisibility / 3f;
             _basicEffect.FogEnd = game.Settings.RangeOfVisibility;
             _basicEffect.FogColor = game.World.SkyColor.ToVector3();
 

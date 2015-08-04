@@ -37,7 +37,8 @@ namespace DagonGraphicEngine.Demo
             Settings = new GameSettings
             {
                 FieldOfView = MathHelper.ToRadians(60.0f),
-                RangeOfVisibility = 30f
+                RangeOfVisibility = 30f,
+                EnableDefaultLighting = true
             };
 
             freeCamera = new FreeCamera(this);
