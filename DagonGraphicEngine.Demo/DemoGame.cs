@@ -52,7 +52,7 @@ namespace DagonGraphicEngine.Demo
 
             var worldComponent = new WorldComponent(this);
             Components.Add(worldComponent);
-            Components.Add(new AxiesComponent(this));
+            //Components.Add(new AxiesComponent(this));
 
             var player = World.Units.Find(u => u is Player);
             Camera = new FirstPersonCamera(this, player);
