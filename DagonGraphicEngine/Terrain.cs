@@ -8,7 +8,7 @@ namespace DagonGraphicEngine
     {
         private readonly float[][] _hightMap;
 
-        private readonly VertexPositionTexture[] vertexData;
+        private readonly VertexPositionNormalTexture[] vertexData;
 
         private readonly DagonGame _game;
 
@@ -25,6 +25,7 @@ namespace DagonGraphicEngine
         public Terrain(DagonGame game, int width, int length)
         {
             _basicEffect = new BasicEffect(game.GraphicsDevice) { TextureEnabled = true};
+            _basicEffect.EnableDefaultLighting();
             _game = game;
 
             _hightMap = new float[width + 1][];
@@ -41,12 +42,13 @@ namespace DagonGraphicEngine
                 }
             }
 
-            vertexData = new VertexPositionTexture[_hightMap.Length * _hightMap[0].Length * 2 * 3];
+            vertexData = new VertexPositionNormalTexture[_hightMap.Length * _hightMap[0].Length * 2 * 3];
 
             var index = 0;
-            for (int i = 0; i < width; i++)
+            //TODO make map width*length size
+            for (int i = 0; i < width-1; i++)
             {
-                for (int j = 0; j < length; j++)
+                for (int j = 0; j < length-1; j++)
                 {
                     vertexData[index] = CreateVertex(i, j, new Vector2(0, 0));
                     index++;
@@ -65,9 +67,14 @@ namespace DagonGraphicEngine
             }
         }
 
-        private VertexPositionTexture CreateVertex(int i, int j, Vector2 textureCoord)
+        private VertexPositionNormalTexture CreateVertex(int i, int j, Vector2 textureCoord)
         {
-            return new VertexPositionTexture(new Vector3(i, _hightMap[i][j], j), textureCoord);
+            var position = new Vector3(i, _hightMap[i][j], j);
+            var v1 = new Vector3(i+1, _hightMap[i+1][j], j) - position;
+            var v2 = new Vector3(i, _hightMap[i][j+1], j+1) - position;
+            var normal = Vector3.Normalize(v1 * v2);
+
+            return new VertexPositionNormalTexture(position, normal, textureCoord);
         }
 
         public void Draw(GameTime gameTime)
