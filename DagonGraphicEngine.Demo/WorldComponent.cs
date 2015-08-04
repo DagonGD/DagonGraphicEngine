@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 namespace DagonGraphicEngine.Demo
 {
@@ -25,6 +26,9 @@ namespace DagonGraphicEngine.Demo
                 }, 
 
                 Terrain = new Terrain(_game, 10, 10)
+                {
+                    LandTexture = _game.Content.Load<Texture2D>("land")
+                }
             };
 
             base.Initialize();

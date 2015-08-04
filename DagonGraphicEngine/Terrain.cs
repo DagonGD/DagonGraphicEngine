@@ -8,15 +8,23 @@ namespace DagonGraphicEngine
     {
         private readonly float[][] _hightMap;
 
-        private readonly VertexPositionColor[] vertexData;
+        private readonly VertexPositionTexture[] vertexData;
 
         private readonly DagonGame _game;
 
         private readonly BasicEffect _basicEffect;
 
+        public Texture2D LandTexture
+        {
+            set
+            {
+                _basicEffect.Texture = value;
+            }
+        }
+
         public Terrain(DagonGame game, int width, int length)
         {
-            _basicEffect = new BasicEffect(game.GraphicsDevice) { VertexColorEnabled = true };
+            _basicEffect = new BasicEffect(game.GraphicsDevice) { TextureEnabled = true};
             _game = game;
 
             _hightMap = new float[width + 1][];
@@ -33,33 +41,33 @@ namespace DagonGraphicEngine
                 }
             }
 
-            vertexData = new VertexPositionColor[_hightMap.Length * _hightMap[0].Length * 2 * 3];
+            vertexData = new VertexPositionTexture[_hightMap.Length * _hightMap[0].Length * 2 * 3];
 
             var index = 0;
             for (int i = 0; i < width; i++)
             {
                 for (int j = 0; j < length; j++)
                 {
-                    vertexData[index] = CreateVertex(i, j, Color.Green);
+                    vertexData[index] = CreateVertex(i, j, new Vector2(0, 0));
                     index++;
-                    vertexData[index] = CreateVertex(i + 1, j, Color.Green);
+                    vertexData[index] = CreateVertex(i + 1, j, new Vector2(1, 0));
                     index++;
-                    vertexData[index] = CreateVertex(i, j + 1, Color.Green);
+                    vertexData[index] = CreateVertex(i, j + 1, new Vector2(0, 1));
                     index++;
 
-                    vertexData[index] = CreateVertex(i + 1, j, Color.Green);
+                    vertexData[index] = CreateVertex(i + 1, j, new Vector2(1, 0));
                     index++;
-                    vertexData[index] = CreateVertex(i + 1, j + 1, Color.Green);
+                    vertexData[index] = CreateVertex(i + 1, j + 1, new Vector2(1, 1));
                     index++;
-                    vertexData[index] = CreateVertex(i, j + 1, Color.Green);
+                    vertexData[index] = CreateVertex(i, j + 1, new Vector2(0, 1));
                     index++;
                 }
             }
         }
 
-        private VertexPositionColor CreateVertex(int i, int j, Color color)
+        private VertexPositionTexture CreateVertex(int i, int j, Vector2 textureCoord)
         {
-            return new VertexPositionColor(new Vector3(i, _hightMap[i][j], j), color);
+            return new VertexPositionTexture(new Vector3(i, _hightMap[i][j], j), textureCoord);
         }
 
         public void Draw(GameTime gameTime)
