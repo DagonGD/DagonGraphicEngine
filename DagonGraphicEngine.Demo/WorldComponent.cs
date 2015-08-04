@@ -22,11 +22,11 @@ namespace DagonGraphicEngine.Demo
                 {
                     new Warrior(_game)
                     {
-                        Position = new Vector3(0f,10f,0f)
+                        Position = new Vector3(5f,10f,5f)
                     },
                     new Player(_game)
                     {
-                        Position = new Vector3(5f,10f,5f),
+                        Position = new Vector3(10f,10f,10f),
                         Angle = MathHelper.ToRadians(0)
                     }
                 },
