@@ -101,6 +101,28 @@ namespace DagonGraphicEngine.Demo
                 player.Stand();
             }
 
+            if(_game.IsActive)
+            {
+                var mouseState = Mouse.GetState();
+                var centerX = _game.Window.ClientBounds.Width / 2;
+                var centerY = _game.Window.ClientBounds.Height / 2;
+
+                player.RotateRight((mouseState.X- centerX )* _game.Settings.MouseSensitivity);
+                player.RotateUp((mouseState.Y - centerY) * _game.Settings.MouseSensitivity);
+
+                if(player.Pitch < -MathHelper.PiOver2)
+                {
+                    player.Pitch = -MathHelper.PiOver2;
+                }
+
+                if (player.Pitch > MathHelper.PiOver2)
+                {
+                    player.Pitch = MathHelper.PiOver2;
+                }
+
+                Mouse.SetPosition(centerX, centerY);
+            }
+
             _game.World.Update(gameTime);
 
             base.Update(gameTime);

@@ -25,7 +25,8 @@ namespace DagonGraphicEngine.Demo
                 RotationSpeed = 0.005f,
                 ScreenWidth = 1280,
                 ScreenHight = 800,
-                IsFullScreen = false
+                IsFullScreen = false,
+                MouseSensitivity = 0.02f
             };
 
             graphics = new GraphicsDeviceManager(this);

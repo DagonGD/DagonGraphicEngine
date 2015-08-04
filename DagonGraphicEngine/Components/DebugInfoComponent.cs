@@ -45,7 +45,7 @@ namespace DagonGraphicEngine.Components
             _spriteBatch.Begin();
             _spriteBatch.DrawString(_font, $"Position: ({_unit.Position})", Vector2.Zero, Color.White);
             _spriteBatch.DrawString(_font, $"Acceleration: ({_unit.Acceleration})", new Vector2(0, 20f), Color.White);
-            _spriteBatch.DrawString(_font, $"Angle: {MathHelper.ToDegrees(_unit.Angle)}", new Vector2(0, 40f), Color.White);
+            _spriteBatch.DrawString(_font, $"Angle: {MathHelper.ToDegrees(_unit.Angle)}, Pitch: {MathHelper.ToDegrees(_unit.Pitch)}", new Vector2(0, 40f), Color.White);
             _spriteBatch.DrawString(_font, $"Hight: {_unit.Hight}", new Vector2(0, 60f), Color.White);
             _spriteBatch.DrawString(_font, $"Fps: {_fps}", new Vector2(0, 80f), Color.White);
 

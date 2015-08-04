@@ -21,7 +21,8 @@ namespace DagonGraphicEngine.Cameras
             get
             {
                 return Matrix.CreateTranslation(-_unit.Position - _unit.Hight)
-                    * Matrix.CreateRotationY(_unit.Angle);
+                    * Matrix.CreateRotationY(_unit.Angle)
+                    * Matrix.CreateRotationX(_unit.Pitch);
             }
         }
 

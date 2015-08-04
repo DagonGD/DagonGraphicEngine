@@ -9,5 +9,6 @@
         public int ScreenWidth { get; set; }
         public int ScreenHight { get; set; }
         public bool IsFullScreen { get; set; }
+        public float MouseSensitivity { get; set; }
     }
 }

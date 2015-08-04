@@ -6,11 +6,12 @@ namespace DagonGraphicEngine.Units
     public abstract class Unit
     {
         public Vector3 Position { get; set; }
-        public Vector3 NewPosition { get; set; }
+        public Vector3 NewPosition { get; private set; }
         public float Angle { get; set; }
+        public float Pitch { get; set; } = 0f;
         public Vector3 Acceleration { get; set; }
-        public float Speed { get; set; }
-        public Vector3 Hight { get; set; }
+        public float Speed { get; private set; }
+        public Vector3 Hight { get; private set; }
 
         protected DagonGame _game;
 
@@ -51,9 +52,14 @@ namespace DagonGraphicEngine.Units
             Position += direction * dist;
         }
 
-        public void RotateRight(float dist)
+        public void RotateRight(float angle)
         {
-            Angle += dist;
+            Angle += angle;
+        }
+
+        public void RotateUp(float angle)
+        {
+            Pitch += angle;
         }
 
         public void Jump()
