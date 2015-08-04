@@ -1,5 +1,6 @@
 ﻿using DagonGraphicEngine.Cameras;
 using DagonGraphicEngine.Components;
+using DagonGraphicEngine.Units;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -13,7 +14,7 @@ namespace DagonGraphicEngine.Demo
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        FreeCamera freeCamera;
+        FirstPersonCamera firstPersonCamera;
         const float MoveSpeed = 0.005f;
         const float RotationSpeed = 0.005f;
 
@@ -41,16 +42,19 @@ namespace DagonGraphicEngine.Demo
                 EnableDefaultLighting = true
             };
 
-            freeCamera = new FreeCamera(this);
-            Camera = freeCamera;
+            
 
             graphics.PreferMultiSampling = true;
             RasterizerState rasterizerState1 = new RasterizerState();
             rasterizerState1.CullMode = CullMode.None;
             graphics.GraphicsDevice.RasterizerState = rasterizerState1;
 
-            Components.Add(new WorldComponent(this));
+            var worldComponent = new WorldComponent(this);
+            Components.Add(worldComponent);
             Components.Add(new AxiesComponent(this));
+
+            firstPersonCamera = new FirstPersonCamera(this, this.World.Units.Find(u=>u is Player));
+            Camera = firstPersonCamera;
 
             base.Initialize();
         }
@@ -93,45 +97,45 @@ namespace DagonGraphicEngine.Demo
             var distance = gameTime.ElapsedGameTime.Milliseconds * MoveSpeed;
             var rotationAngle = gameTime.ElapsedGameTime.Milliseconds * RotationSpeed;
 
-            if (keyboardState.IsKeyDown(Keys.W))
+            /*if (keyboardState.IsKeyDown(Keys.W))
             {
-                freeCamera.MoveForward(distance);
+                firstPersonCamera.MoveForward(distance);
             }
 
             if (keyboardState.IsKeyDown(Keys.S))
             {
-                freeCamera.MoveForward(-distance);
+                firstPersonCamera.MoveForward(-distance);
             }
 
             if (keyboardState.IsKeyDown(Keys.A))
             {
-                freeCamera.MoveRight(-distance);
+                firstPersonCamera.MoveRight(-distance);
             }
 
             if (keyboardState.IsKeyDown(Keys.D))
             {
-                freeCamera.MoveRight(distance);
+                firstPersonCamera.MoveRight(distance);
             }
 
             if (keyboardState.IsKeyDown(Keys.Space))
             {
-                freeCamera.MoveUp(distance);
+                firstPersonCamera.MoveUp(distance);
             }
 
             if (keyboardState.IsKeyDown(Keys.C))
             {
-                freeCamera.MoveUp(-distance);
+                firstPersonCamera.MoveUp(-distance);
             }
 
             if (keyboardState.IsKeyDown(Keys.Right))
             {
-                freeCamera.RotateRight(rotationAngle);
+                firstPersonCamera.RotateRight(rotationAngle);
             }
 
             if (keyboardState.IsKeyDown(Keys.Left))
             {
-                freeCamera.RotateRight(-rotationAngle);
-            }
+                firstPersonCamera.RotateRight(-rotationAngle);
+            }*/
 
 
             base.Update(gameTime);

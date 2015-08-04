@@ -12,10 +12,7 @@ namespace DagonGraphicEngine.Demo
         public WorldComponent(DemoGame game):base(game)
         {
             _game = game;
-        }
 
-        public override void Initialize()
-        {
             _game.World = new World
             {
                 Boxes = new List<Box>(),
@@ -25,14 +22,24 @@ namespace DagonGraphicEngine.Demo
                     new Warrior(_game)
                     {
                         Position = new Vector3(0f,10f,0f)
+                    },
+                    new Player(_game)
+                    {
+                        Position = new Vector3(5f,10f,5f),
+                        Angle = MathHelper.ToRadians(-30)
                     }
-                }, 
+                },
             };
 
             _game.World.Terrain = new Terrain(_game, 100, 100)
             {
                 LandTexture = _game.Content.Load<Texture2D>("land")
             };
+        }
+
+        public override void Initialize()
+        {
+            
 
             base.Initialize();
         }

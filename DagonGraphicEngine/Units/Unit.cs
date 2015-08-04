@@ -6,6 +6,7 @@ namespace DagonGraphicEngine.Units
     {
         public Vector3 Position { get; set; }
         public Vector3 NewPosition { get; set; }
+        public float Angle { get; set; }
         public Vector3 Velocity { get; set; }
         public Vector3 Acceleration { get; set; }
 
