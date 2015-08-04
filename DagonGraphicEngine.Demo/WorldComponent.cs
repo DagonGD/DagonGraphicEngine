@@ -28,15 +28,15 @@ namespace DagonGraphicEngine.Demo
                 },
                 new Warrior(_game)
                 {
-                    Position = new Vector3(60f,10f,60f)
+                    Position = new Vector3(60f,0f,60f)
                 },
                 new Warrior(_game)
                 {
-                    Position = new Vector3(70f,10f,70f)
+                    Position = new Vector3(70f,0f,70f)
                 },
                 new Warrior(_game)
                 {
-                    Position = new Vector3(80f,10f,80f)
+                    Position = new Vector3(80f,0f,80f)
                 }
             };
 

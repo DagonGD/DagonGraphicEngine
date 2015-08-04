@@ -19,6 +19,7 @@ namespace DagonGraphicEngine.Demo
             if(target != null)
             {
                 var direction = target.Position - this.Position;
+                direction.Y = 0;
                 direction.Normalize();
 
                 this.Position += direction * this.Speed * gameTime.ElapsedGameTime.Milliseconds;

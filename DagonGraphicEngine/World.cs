@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using DagonGraphicEngine.Units;
 using System;
+using System.Linq;
 
 namespace DagonGraphicEngine
 {
@@ -27,8 +28,9 @@ namespace DagonGraphicEngine
             {
                 box.Draw(gameTime);
             }
+            var player = Units.SingleOrDefault(u => u is Player);
 
-            foreach (var unit in Units)
+            foreach (var unit in Units.OrderByDescending(u => Vector3.Distance(player.Position, u.Position)))
             {
                 unit.Draw(gameTime);
             }
