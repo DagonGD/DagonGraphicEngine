@@ -38,7 +38,7 @@ namespace DagonGraphicEngine
 
                 for (int j = 0; j < length + 1; j++)
                 {
-                    _hightMap[i][j] = (float)(random.NextDouble() / 2);
+                    _hightMap[i][j] = (float)(random.NextDouble() / 4);
                 }
             }
 
@@ -70,9 +70,10 @@ namespace DagonGraphicEngine
         private VertexPositionNormalTexture CreateVertex(int i, int j, Vector2 textureCoord)
         {
             var position = new Vector3(i, _hightMap[i][j], j);
-            var v1 = new Vector3(i+1, _hightMap[i+1][j], j) - position;
-            var v2 = new Vector3(i, _hightMap[i][j+1], j+1) - position;
-            var normal = Vector3.Normalize(v1 * v2);
+            var v1 = new Vector3(i, _hightMap[i][j+1], j+1) - position;
+            var v2 = new Vector3(i+1, _hightMap[i+1][j], j) - position;
+            var cross = Vector3.Cross(v1, v2);
+            var normal = Vector3.Normalize(cross);
 
             return new VertexPositionNormalTexture(position, normal, textureCoord);
         }
