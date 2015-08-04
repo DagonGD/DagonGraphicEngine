@@ -7,7 +7,6 @@ namespace DagonGraphicEngine.Units
         public Vector3 Position { get; set; }
         public Vector3 NewPosition { get; set; }
         public float Angle { get; set; }
-        public Vector3 Velocity { get; set; }
         public Vector3 Acceleration { get; set; }
 
         protected DagonGame _game;
@@ -15,7 +14,6 @@ namespace DagonGraphicEngine.Units
         public Unit(DagonGame game)
         {
             _game = game;
-            Velocity = Vector3.Zero;
             Acceleration = Vector3.Zero;
         }
 

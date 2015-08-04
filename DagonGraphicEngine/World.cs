@@ -46,7 +46,6 @@ namespace DagonGraphicEngine
                 if (unit.Position.Y < 0)
                 {
                     //TODO damage to unit
-                    unit.Velocity = Vector3.Zero;
                     unit.Acceleration = Vector3.Zero;
                 }
                 else

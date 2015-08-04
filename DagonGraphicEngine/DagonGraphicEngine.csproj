@@ -46,6 +46,7 @@
     <Compile Include="Cameras\FreeCamera.cs" />
     <Compile Include="Cameras\ICamera.cs" />
     <Compile Include="Components\AxiesComponent.cs" />
+    <Compile Include="Components\DebugInfoComponent.cs" />
     <Compile Include="DagonGame.cs" />
     <Compile Include="GameSettings.cs" />
     <Compile Include="Units\Player.cs" />

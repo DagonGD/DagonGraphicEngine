@@ -53,8 +53,10 @@ namespace DagonGraphicEngine.Demo
             Components.Add(worldComponent);
             Components.Add(new AxiesComponent(this));
 
-            firstPersonCamera = new FirstPersonCamera(this, this.World.Units.Find(u=>u is Player));
+            var player = World.Units.Find(u => u is Player);
+            firstPersonCamera = new FirstPersonCamera(this, player);
             Camera = firstPersonCamera;
+            Components.Add(new DebugInfoComponent(this, player));
 
             base.Initialize();
         }
