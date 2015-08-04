@@ -22,7 +22,7 @@ namespace DagonGraphicEngine.Demo
                 {
                     new Player(_game, _game.Content.Load<Texture2D>("player"))
                     {
-                        Position = new Vector3(5f,5f,5f)
+                        Position = new Vector3(0f,0f,0f)
                     }
                 }, 
 

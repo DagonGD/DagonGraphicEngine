@@ -22,8 +22,10 @@ namespace DagonGraphicEngine
 
         public override void Draw(GameTime gameTime)
         {
-            _basicEffect.World = Matrix.CreateConstrainedBillboard(Position, Matrix.Invert(_game.Camera.View).Translation, Vector3.Down, null, null)
-                * Matrix.CreateScale(1f/256f, 1f/256f, 1f/256f);
+            _basicEffect.World = Matrix.CreateScale(1f / 256f, 1f / 256f, 1f / 256f)
+                * Matrix.CreateRotationX(MathHelper.ToRadians(180))
+                * Matrix.CreateTranslation(new Vector3(-0.5f,1f,0f))
+                * Matrix.CreateConstrainedBillboard(Position, Matrix.Invert(_game.Camera.View).Translation, Vector3.Up, null, null);
             _basicEffect.View = _game.Camera.View;
             _basicEffect.Projection = _game.Camera.Projection;
 
