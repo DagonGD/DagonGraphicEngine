@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using DagonGraphicEngine.Units;
 using Microsoft.Xna.Framework.Input;
+using System.Linq;
 
 namespace DagonGraphicEngine.Demo
 {
@@ -21,14 +22,21 @@ namespace DagonGraphicEngine.Demo
 
             _game.World.Units = new List<Unit>
             {
-                new Warrior(_game)
+                new Player(_game)
                 {
                     Position = new Vector3(50f,10f,50f)
                 },
-                new Player(_game)
+                new Warrior(_game)
                 {
-                    Position = new Vector3(60f,10f,60f),
-                    Angle = MathHelper.ToRadians(0)
+                    Position = new Vector3(60f,10f,60f)
+                },
+                new Warrior(_game)
+                {
+                    Position = new Vector3(70f,10f,70f)
+                },
+                new Warrior(_game)
+                {
+                    Position = new Vector3(80f,10f,80f)
                 }
             };
 
@@ -53,7 +61,7 @@ namespace DagonGraphicEngine.Demo
         public override void Update(GameTime gameTime)
         {
             var keyboardState = Keyboard.GetState();
-            var player = _game.World.Units.Find(u => u is Player);
+            var player = _game.World.Units.SingleOrDefault(u => u is Player);
             var distance = gameTime.ElapsedGameTime.Milliseconds * player.Speed;
             var rotationAngle = gameTime.ElapsedGameTime.Milliseconds * _game.Settings.RotationSpeed;
 

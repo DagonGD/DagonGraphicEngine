@@ -10,7 +10,7 @@ namespace DagonGraphicEngine.Units
         public float Angle { get; set; }
         public float Pitch { get; set; } = 0f;
         public Vector3 Acceleration { get; set; }
-        public float Speed { get; private set; }
+        public float Speed { get; protected set; }
         public Vector3 Hight { get; private set; }
 
         protected DagonGame _game;
