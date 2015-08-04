@@ -17,9 +17,21 @@ namespace DagonGraphicEngine.Demo
         
         public DemoGame()
         {
+            Settings = new GameSettings
+            {
+                FieldOfView = MathHelper.ToRadians(60.0f),
+                RangeOfVisibility = 30f,
+                EnableDefaultLighting = true,
+                RotationSpeed = 0.005f,
+                ScreenWidth = 1280,
+                ScreenHight = 800,
+                IsFullScreen = false
+            };
+
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 1280;
-            graphics.PreferredBackBufferHeight = 800;
+            graphics.PreferredBackBufferWidth = Settings.ScreenWidth;
+            graphics.PreferredBackBufferHeight = Settings.ScreenHight;
+            graphics.IsFullScreen = Settings.IsFullScreen;
 
             Content.RootDirectory = "Content";
         }
@@ -32,14 +44,6 @@ namespace DagonGraphicEngine.Demo
         /// </summary>
         protected override void Initialize()
         {
-            Settings = new GameSettings
-            {
-                FieldOfView = MathHelper.ToRadians(60.0f),
-                RangeOfVisibility = 30f,
-                EnableDefaultLighting = true,
-                RotationSpeed = 0.005f
-            };            
-
             graphics.PreferMultiSampling = true;
             RasterizerState rasterizerState1 = new RasterizerState();
             rasterizerState1.CullMode = CullMode.None;
